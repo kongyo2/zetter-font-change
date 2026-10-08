@@ -1,0 +1,20 @@
+{
+  // ビルドスクリプト（Node.js の型ストリッピングで直接実行）用。
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "nodenext",
+    "lib": ["es2023"],
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["."]
+}

@@ -1,0 +1,19 @@
+{
+  // 拡張機能本体（ブラウザで動くコンテンツスクリプト）用。出力は esbuild が担当するので型チェックのみ。
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "preserve",
+    "lib": ["es2022", "dom"],
+    "types": [],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["src"]
+}

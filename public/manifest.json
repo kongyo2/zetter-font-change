@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Zetter フォント戻し",
+  "version": "1.0.0",
+  "description": "Zetter（z-etter.com）のフォントを、アップデート前のシステムフォントに戻します（非公式）。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://z-etter.com/*"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
