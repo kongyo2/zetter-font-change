@@ -1,6 +1,10 @@
 # Zetter フォント戻し
 
-[Zetter](https://z-etter.com/) のフォントを、2026年10月のアップデート前の状態に戻す Chrome 拡張機能です（非公式）。
+[![CI](https://github.com/kongyo2/zetter-font-change/actions/workflows/ci.yml/badge.svg)](https://github.com/kongyo2/zetter-font-change/actions/workflows/ci.yml)
+
+[Zetter](https://z-etter.com/) のフォントを、2026年10月のアップデート前の状態に戻す Chrome 拡張機能です。
+
+Zetter の運営とは関係のない、個人による非公式の拡張機能です。
 
 ## 何が変わったのか
 
@@ -36,15 +40,15 @@ npm run build
 
 ## 開発用コマンド
 
-| コマンド               | 内容                                                       |
-| ---------------------- | ---------------------------------------------------------- |
-| `npm run build`        | `dist/` にビルド                                           |
+| コマンド               | 内容                                                        |
+| ---------------------- | ----------------------------------------------------------- |
+| `npm run build`        | `dist/` にビルド                                            |
 | `npm run watch`        | `src/` の変更を監視して再ビルド（`public/` の変更は対象外） |
-| `npm run typecheck`    | TypeScript の型チェック                                    |
-| `npm run lint`         | oxlint                                                     |
-| `npm run format`       | Prettier で整形                                            |
-| `npm run format:check` | Prettier の整形チェック                                    |
-| `npm run check`        | 型チェック・lint・整形チェックをまとめて実行               |
+| `npm run typecheck`    | TypeScript の型チェック                                     |
+| `npm run lint`         | oxlint                                                      |
+| `npm run format`       | Prettier で整形                                             |
+| `npm run format:check` | Prettier の整形チェック                                     |
+| `npm run check`        | 型チェック・lint・整形チェックをまとめて実行                |
 
 ## 構成
 
@@ -57,8 +61,20 @@ src/
   content.ts       Pretendard JP の <link> を取り除く
 scripts/
   build.ts         esbuild でビルドするスクリプト（Node.js で直接実行）
+.github/workflows/
+  ci.yml           GitHub Actions の CI
 ```
+
+## CI
+
+`main` への push と Pull Request ごとに、GitHub Actions で型チェック・lint・整形チェック・ビルドを Node.js 22 / 24 で実行します。
+
+ビルド結果は、実行結果ページの Artifacts に `zetter-font-change-<バージョン>` として保存されます。ダウンロードした zip は `manifest.json` が直下にあるので、そのまま Chrome ウェブストアにアップロードできます。ストアに出し直すときは、先に `public/manifest.json` の `version` を上げてください。
 
 ## 注意
 
 Zetter 側の CSS がまた変わると、効かなくなることがあります。その場合は開発者ツールで `body` の `font-family` がどこから来ているかを確認し、`src/content.css` を合わせて直してください。
+
+## ライセンス
+
+[MIT](LICENSE)

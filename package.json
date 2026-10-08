@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "Zetter（z-etter.com）のフォントをアップデート前のシステムフォントに戻す Chrome 拡張機能",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongyo2/zetter-font-change.git"
+  },
   "type": "module",
   "scripts": {
     "build": "node scripts/build.ts",
